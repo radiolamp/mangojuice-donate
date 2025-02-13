@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поддержать проект</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="language-switcher">
+            <button id="switch-en" class="lang-button active">EN</button>
+            <button id="switch-ru" class="lang-button">RU</button>
+        </div>
+        <div class="card">
+            <h1 id="title">Support the Project</h1>
+            <p class="description" id="description">
+                If you like what I do, you can support me financially. Every donation helps to develop the project further!
+            </p>
+            <div class="donation-methods">
+                <a href="https://www.tbank.ru/cf/3PPTstulqEq" class="donate-button tinkoff">
+                    <i class="fas fa-credit-card"></i> Тинькофф
+                </a>
+                <a href="https://boosty.to/radiolamp/donate" class="donate-button boosty">
+                    <i class="fas fa-heart"></i> Boosty
+                </a>
+                <a href="https://www.donationalerts.com/r/radiolamp" class="donate-button donationalerts">
+                    <i class="fas fa-donate"></i> DonationAlerts
+                </a>
+            </div>
+            <p class="thank-you" id="thank-you">Thank you for your support! 💖</p>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            const elements = {
+                title: document.getElementById('title'),
+                description: document.getElementById('description'),
+                thankYou: document.getElementById('thank-you')
+            };
+
+            if (lang === 'ru') {
+                elements.title.innerText = 'Поддержать Mangojuice';
+                elements.description.innerText = 'Если вам нравится то, что я делаю, вы можете поддержать меня финансово. Каждое пожертвование помогает развивать проект дальше!';
+                elements.thankYou.innerText = 'Спасибо за вашу поддержку! 💖';
+            } else {
+                elements.title.innerText = 'Support the Mangojuice';
+                elements.description.innerText = 'If you like what I do, you can support me financially. Every donation helps to develop the project further!';
+                elements.thankYou.innerText = 'Thank you for your support! 💖';
+            }
+
+            document.getElementById('switch-en').classList.toggle('active', lang === 'en');
+            document.getElementById('switch-ru').classList.toggle('active', lang === 'ru');
+        }
+
+        document.getElementById('switch-en').addEventListener('click', () => switchLanguage('en'));
+        document.getElementById('switch-ru').addEventListener('click', () => switchLanguage('ru'));
+
+        switchLanguage('en');
+    </script>
+
+    <style>
+        .language-switcher {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .lang-button {
+            background: #dfdfdf;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-left: 5px;
+            border-radius: 5px;
+        }
+
+        .lang-button.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+    </style>
+</body>
+</html>
