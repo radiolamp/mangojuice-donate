@@ -105,6 +105,34 @@ h1 {
     background: linear-gradient(135deg, #ff8c00, #ff4500);
 }
 
+.github-button {
+    position: fixed; /* Фиксированное положение */
+    bottom: 20px; /* Отступ от нижнего края */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translateX(-50%); /* Точное центрирование */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+    background: linear-gradient(135deg, #333, #000);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Чтобы кнопка была поверх других элементов */
+}
+
+.github-button:hover {
+    transform: translateX(-50%) translateY(-5px); /* Поднимаем кнопку при наведении */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
 .thank-you {
     margin-top: 20px;
     font-size: 1rem;
