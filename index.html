@@ -22,13 +22,13 @@
             </p>
             <div class="donation-methods">
                 <a href="https://www.tbank.ru/cf/3PPTstulqEq" class="donate-button tinkoff">
-                    <i class="fas fa-credit-card"></i> Тинькофф
+                    <i class="fas fa-credit-card"></i> <span id="tinkoff">Тинькофф</span>
                 </a>
                 <a href="https://boosty.to/radiolamp/donate" class="donate-button boosty">
-                    <i class="fas fa-heart"></i> Boosty
+                    <i class="fas fa-heart"></i> <span id="boosty">Boosty</span>
                 </a>
                 <a href="https://www.donationalerts.com/r/radiolamp" class="donate-button donationalerts">
-                    <i class="fas fa-donate"></i> DonationAlerts
+                    <i class="fas fa-donate"></i> <span id="donationalerts">DonationAlerts</span>
                 </a>
             </div>
             <p class="thank-you" id="thank-you">Thank you for your support! 💖</p>
@@ -39,21 +39,31 @@
     </div>
 
     <script>
+        const supportedLanguages = ['en','ru'];
+        const defaultLanguage = 'en';
+        const browserLanguage = navigator.language.slice(0, 2); // Берём только первые две буквы
         function switchLanguage(lang) {
             const elements = {
                 title: document.getElementById('title'),
                 description: document.getElementById('description'),
-                thankYou: document.getElementById('thank-you')
+                thankYou: document.getElementById('thank-you'),
+                donationMethods:{
+                    tinkoff : document.getElementById('tinkoff')
+                }
             };
 
             if (lang === 'ru') {
+                document.title = "Поддержать проект";
                 elements.title.innerText = 'Поддержать Mangojuice';
                 elements.description.innerText = 'Если вам нравится то, что я делаю, вы можете поддержать меня финансово. Каждое пожертвование помогает развивать проект дальше!';
                 elements.thankYou.innerText = 'Спасибо за вашу поддержку! 💖';
+                elements.donationMethods.tinkoff.innerText = 'Тинькофф';
             } else {
+                document.title = "Support the project";
                 elements.title.innerText = 'Support the Mangojuice';
                 elements.description.innerText = 'If you like what I do, you can support me financially. Every donation helps to develop the project further!';
                 elements.thankYou.innerText = 'Thank you for your support! 💖';
+                elements.donationMethods.tinkoff.innerText = 'Tinkoff Bank';
             }
 
             document.getElementById('switch-en').classList.toggle('active', lang === 'en');
@@ -63,7 +73,10 @@
         document.getElementById('switch-en').addEventListener('click', () => switchLanguage('en'));
         document.getElementById('switch-ru').addEventListener('click', () => switchLanguage('ru'));
 
-        switchLanguage('en');
+        switchLanguage(supportedLanguages.includes(browserLanguage)
+            ? browserLanguage
+            : defaultLanguage
+        ); //если языка браузера нет в массиве поддерживаемых, то аргументом функции является язык по умолчанию
     </script>
 
     <style>
