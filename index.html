@@ -1,104 +1,123 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Поддержать проект</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="title">Поддержать проект</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
-    <div class="background"></div>
-    <div class="container">
-        <div class="language-switcher">
-            <button id="switch-en" class="lang-button active">EN</button>
-            <button id="switch-ru" class="lang-button">RU</button>
-        </div>
-        <div class="card">
-            <h1 id="title">Support the Project</h1>
-            <p class="description" id="description">
-                If you like what I do, you can support me financially. Every donation helps to develop the project further!
-            </p>
-            <div class="donation-methods">
-                <a href="https://www.tbank.ru/cf/3PPTstulqEq" class="donate-button tinkoff">
-                    <i class="fas fa-credit-card"></i> <span id="tinkoff">Тинькофф</span>
-                </a>
-                <a href="https://boosty.to/radiolamp/donate" class="donate-button boosty">
-                    <i class="fas fa-heart"></i> <span id="boosty">Boosty</span>
-                </a>
-                <a href="https://www.donationalerts.com/r/radiolamp" class="donate-button donationalerts">
-                    <i class="fas fa-donate"></i> <span id="donationalerts">DonationAlerts</span>
-                </a>
-            </div>
-            <p class="thank-you" id="thank-you">Thank you for your support! 💖</p>
-        </div>
-        <a href="https://github.com/radiolamp/mangojuice" class="github-button" target="_blank">
-            <i class="fab fa-github"></i> GitHub
-        </a>
+  <div class="container">
+    <h1 data-i18n="heading">Поддержать проект</h1>
+    <p class="description" data-i18n="description">
+      Если вам нравится то, что я делаю, вы можете поддержать меня финансово. Каждое пожертвование помогает развивать проект!
+    </p>
+
+    <div class="donation-methods">
+      <a href="#telegram-qr" class="donate-button telegram" role="button" tabindex="0">
+        <i class="fab fa-telegram-plane"></i> <span data-i18n="telegram">Telegram</span>
+      </a>
+      <a href="https://www.tbank.ru/cf/3PPTstulqEq" class="donate-button tinkoff" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-credit-card"></i> <span data-i18n="tinkoff">Тинькофф</span>
+      </a>
+      <a href="https://boosty.to/radiolamp/donate" class="donate-button boosty" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-heart"></i> <span data-i18n="boosty">Boosty</span>
+      </a>
+      <a href="https://www.donationalerts.com/r/radiolamp" class="donate-button donationalerts" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-donate"></i> <span data-i18n="donationalerts">DonationAlerts</span>
+      </a>
     </div>
 
-    <script>
-        const supportedLanguages = ['en','ru'];
-        const defaultLanguage = 'en';
-        const browserLanguage = navigator.language.slice(0, 2); // Берём только первые две буквы
-        function switchLanguage(lang) {
-            const elements = {
-                title: document.getElementById('title'),
-                description: document.getElementById('description'),
-                thankYou: document.getElementById('thank-you'),
-                donationMethods:{
-                    tinkoff : document.getElementById('tinkoff')
-                }
-            };
+    <div id="telegram-qr" aria-live="polite" aria-atomic="true" style="display: none; flex-direction: column; align-items: center; gap: 0.5rem; margin-top: 1rem;">
+    <!--   <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=t.me/radiolamp" alt="Telegram QR" /> -->
+      <textarea readonly aria-label="Telegram link for donation">UQCHkkZx3UT_8A-tAI8Zlu6iuX5WsBYLa0JVC7SK8PfJ3Rqf</textarea>
+    </div>
 
-            if (lang === 'ru') {
-                document.title = "Поддержать проект";
-                elements.title.innerText = 'Поддержать Mangojuice';
-                elements.description.innerText = 'Если вам нравится то, что я делаю, вы можете поддержать меня финансово. Каждое пожертвование помогает развивать проект дальше!';
-                elements.thankYou.innerText = 'Спасибо за вашу поддержку! 💖';
-                elements.donationMethods.tinkoff.innerText = 'Тинькофф';
-            } else {
-                document.title = "Support the project";
-                elements.title.innerText = 'Support the Mangojuice';
-                elements.description.innerText = 'If you like what I do, you can support me financially. Every donation helps to develop the project further!';
-                elements.thankYou.innerText = 'Thank you for your support! 💖';
-                elements.donationMethods.tinkoff.innerText = 'Tinkoff Bank';
-            }
+    <p class="thank-you" data-i18n="thankYou">Спасибо за поддержку! 💖</p>
+  </div>
 
-            document.getElementById('switch-en').classList.toggle('active', lang === 'en');
-            document.getElementById('switch-ru').classList.toggle('active', lang === 'ru');
-        }
+  <a href="https://github.com/radiolamp/mangojuice" class="github-button" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+    <i class="fab fa-github"></i> <span data-i18n="github">GitHub</span>
+  </a>
 
-        document.getElementById('switch-en').addEventListener('click', () => switchLanguage('en'));
-        document.getElementById('switch-ru').addEventListener('click', () => switchLanguage('ru'));
+  <div id="copy-notification" role="alert" data-i18n="copied">Скопировано в буфер обмена!</div>
 
-        switchLanguage(supportedLanguages.includes(browserLanguage)
-            ? browserLanguage
-            : defaultLanguage
-        ); //если языка браузера нет в массиве поддерживаемых, то аргументом функции является язык по умолчанию
-    </script>
+  <script>
+    const translations = {
+      ru: {
+        title: "Поддержать проект",
+        heading: "Поддержать проект",
+        description: "Если вам нравится то, что я делаю, вы можете поддержать меня финансово. Каждое пожертвование помогает развивать проект!",
+        telegram: "Telegram TON",
+        tinkoff: "Тинькофф",
+        boosty: "Boosty",
+        donationalerts: "DonationAlerts",
+        github: "GitHub",
+        thankYou: "Спасибо за поддержку! 💖",
+        copied: "Скопировано в буфер обмена!"
+      },
+      en: {
+        title: "Support the Project",
+        heading: "Support the Project",
+        description: "If you like what I do, you can support me financially. Every donation helps to develop the project further!",
+        telegram: "Telegram TON",
+        tinkoff: "Tinkoff",
+        boosty: "Boosty",
+        donationalerts: "DonationAlerts",
+        github: "GitHub",
+        thankYou: "Thank you for your support! 💖",
+        copied: "Copied to clipboard!"
+      }
+    };
 
-    <style>
-        .language-switcher {
-            text-align: right;
-            margin-bottom: 20px;
-        }
+    const supportedLanguages = ["en", "ru"];
+    const defaultLanguage = "en";
+    const browserLanguage = navigator.language.slice(0, 2);
 
-        .lang-button {
-            background: #dfdfdf;
-            border: 1px solid #ccc;
-            padding: 5px 10px;
-            cursor: pointer;
-            margin-left: 5px;
-            border-radius: 5px;
-        }
+    function switchLanguage(lang) {
+      const dict = translations[lang] || translations[defaultLanguage];
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) el.textContent = dict[key];
+      });
+      document.title = dict.title;
+    }
 
-        .lang-button.active {
-            background: #007bff;
-            color: white;
-            border-color: #007bff;
-        }
-    </style>
+    switchLanguage(supportedLanguages.includes(browserLanguage) ? browserLanguage : defaultLanguage);
+
+    // Telegram QR toggle and copy logic
+    const telegramButton = document.querySelector('.donate-button.telegram');
+    const telegramQR = document.getElementById('telegram-qr');
+    const textarea = telegramQR.querySelector('textarea');
+    const copyNotification = document.getElementById('copy-notification');
+
+    telegramButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isVisible = telegramQR.style.display === 'flex';
+      telegramQR.style.display = isVisible ? 'none' : 'flex';
+      if (!isVisible) {
+        telegramQR.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+
+    textarea.addEventListener('click', () => {
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showNotification();
+      } catch {
+        alert('Не удалось скопировать текст. Пожалуйста, скопируйте вручную.');
+      }
+      textarea.blur();
+    });
+
+    function showNotification() {
+      copyNotification.classList.add('show');
+      setTimeout(() => {
+        copyNotification.classList.remove('show');
+      }, 1500);
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0; padding: 0; height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #222;
+}
+.donate-button {
+  background: #444;
+  color: white;
+  cursor: pointer;
+}
+.donate-button:hover {
+  background: #666;
+}
+.donate-button.tinkoff {
+  background: hsl(50, 99%, 45%);
+  color: #ffffff;
+}
+.donate-button.boosty {
+  background: #ff6b6b;
+}
+.donate-button.donationalerts {
+  background: #ff8c00;
+}
+.donate-button.telegram {
+  background: #0088cc;
+}
+.thank-you {
+  opacity: 0.8;
+}
+.github-button {
+  color: #222;
+  margin-top: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+.github-button i {
+  font-size: 1.3rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #121212 0%, #2a2a2a 100%);
+    color: #eee;
+  }
+  .donate-button {
+    background: #333;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  .donate-button:hover {
+    background: #555;
+  }
+  .donate-button.tinkoff {
+    background: hsl(50, 99%, 45%);
+    color: #ffffff;
+  }
+  .donate-button.boosty {
+    background: #ff6b6b;
+  }
+  .donate-button.donationalerts {
+    background: #ff8c00;
+  }
+  .donate-button.telegram {
+    background: #0088cc;
+  }
+  .thank-you {
+    opacity: 0.7;
+  }
+  .github-button {
+    color: #eee;
+  }
+}
+
+.container {
+  max-width: 420px;
+  width: 100%;
+}
+h1 {
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 2rem;
+}
+p.description {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: inherit;
+}
+.donation-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.donate-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 0;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+.donate-button i {
+  font-size: 1.3rem;
+}
+@media (max-width: 400px) {
+  .donate-button {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+  h1 {
+    font-size: 1.6rem;
+  }
+}
+
+#telegram-qr {
+  margin-top: 20px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+#telegram-qr img {
+  border-radius: 15px;
+  width: 180px;
+  height: 180px;
+}
+#telegram-qr textarea {
+  width: 420px;
+  height: 50px;
+  border-radius: 8px;
+  padding: 8px 8px;
+  font-size: 13px;
+  resize: none;
+  border: 2px solid #0088cc;
+  font-weight: 600;
+  cursor: pointer;
+}
+#copy-notification {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0088cc;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  font-weight: 600;
+  user-select: none;
+  z-index: 1000;
+}
+#copy-notification.show {
+  opacity: 1;
+  pointer-events: auto;
+}
